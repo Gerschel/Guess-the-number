@@ -29,7 +29,7 @@ def range1000():
     ran_num = 1000
     new_game()
 
-def input_guess():
+def input_guess():#change 6 by @Gerschel
     global limit, app
     guess = int(user_guess.get()) #change 3 by @Gerschel
 
