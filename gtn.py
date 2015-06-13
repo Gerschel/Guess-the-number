@@ -29,17 +29,17 @@ def range1000():
     ran_num = 1000
     new_game()
 
-def input_guess(guess):
+def input_guess():
     global limit, app
-    guess = int(guess)
+    guess = int(user_guess.get()) #change 3 by @Gerschel
 
-    gw = Label(app, text="Guess was"+ str(guess)).pack()
+    gw = Label(app, text="Guess was" + str(guess)).pack()
 
     limit = limit - 1
     if guess < secret_number:
 
         ph = Label(app, text="Higher!").pack()
-        nrg = Label(app, text="Number of remaining guesses is" + str(limit)).pack()
+        nrg = Label(app, text="Number of remaining guesses is " + str(limit)).pack()
     elif guess > secret_number:
 
         pl = Label(app, text="Lower!").pack()
@@ -57,13 +57,16 @@ def input_guess(guess):
             range1000()
 
 new_game()
+user_guess = StringVar() # ghange 1 by @gerschel
 ################################################################
 but100 = Button(app, text="Range: 0 - 100", command=range100)
 but1000 = Button(app, text="Range: 0 - 1000", command=range1000)
-gs = Entry(app)#have to figure out how to make Entry go back to input_guess function
+gs = Entry(app, textvariable=user_guess)#change 2 by @gerschel
+guess_button = Button(app, text="Guess!", command=input_guess) #change 4 by @gerschel
 #################################################################
 but100.pack()
 but1000.pack()
 gs.pack()
+guess_button.pack() #change 5 by @gerschel
 #################################################################
 mainloop()
